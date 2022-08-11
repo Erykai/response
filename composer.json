@@ -1,0 +1,23 @@
+{
+  "name": "erykai/response",
+  "description": "Response json, array and object with translation into any language",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "alexdeovidal",
+      "email": "contato@webav.com.br"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Erykai\\Response\\": "src"
+    }
+  },
+  "require": {
+    "PHP": ">=8.0"
+  },
+  "require-dev": {
+    "alexdeovidal/docker-dev": "v1.1.1"
+  }
+}
