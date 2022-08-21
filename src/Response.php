@@ -13,26 +13,11 @@ class Response extends Resource
      */
     public function data(object $data): static
     {
-        $this->setDynamic();
-        if(!empty($data->dynamic)){
-            $this->setDynamic($data->dynamic);
-            unset($data->dynamic);
-        }
+        $data = array_filter((array) $data);
+        $data = (object) $data;
         $this->setResponse($data);
         return $this;
     }
-
-    /**
-     * @param string|null $lang
-     * @return $this
-     */
-    public function lang(?string $lang = null): static
-    {
-        $this->setLang($lang);
-        $this->setResponse($this->translate($this->getResponse()));
-        return $this;
-    }
-
     /**
      * @return string
      */
@@ -41,7 +26,6 @@ class Response extends Resource
         header('Content-Type: application/json; charset=utf-8');
         return json_encode($this->getResponse());
     }
-
     /**
      * @return array
      */
