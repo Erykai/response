@@ -1,12 +1,20 @@
 # response
-response json, array and object with translation into any language
+[![Maintainer](http://img.shields.io/badge/maintainer-@alexdeovidal-blue.svg?style=flat-square)](https://instagram.com/alexdeovidal)
+[![Source Code](http://img.shields.io/badge/source-erykai/response-blue.svg?style=flat-square)](https://github.com/erykai/response)
+[![PHP from Packagist](https://img.shields.io/packagist/php-v/erykai/response.svg?style=flat-square)](https://packagist.org/packages/erykai/response)
+[![Latest Version](https://img.shields.io/github/release/erykai/response.svg?style=flat-square)](https://github.com/erykai/response/releases)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
+[![Quality Score](https://img.shields.io/scrutinizer/g/erykai/response.svg?style=flat-square)](https://scrutinizer-ci.com/g/erykai/response)
+[![Total Downloads](https://img.shields.io/packagist/dt/erykai/response.svg?style=flat-square)](https://packagist.org/packages/erykai/response)
+
+Receive an object and return it as an array, json or object
 
 ## Installation
 
 Composer:
 
 ```bash
-"erykai/response": "1.0.*"
+"erykai/response": "1.1.*"
 ```
 
 Terminal
@@ -15,72 +23,25 @@ Terminal
 composer require erykai/response
 ```
 
-Create config.php
-
-```php
-const RESPONSE_TRANSLATE_PATH = 'translate';
-```
 
 Response Json
 
 ```php
 use Erykai\Response\Response;
-require "test/config.php";
 require "vendor/autoload.php";
 $response = new Response();
 
 $data = new stdClass();
 $data->code = 200;
 $data->type = 'success';
-$data->message = "hello my name is alex vidal and my email is webav.com.br@gmail.com";
+$data->message = "hello my name is alex vidal and my email is contato@webav.com.br";
 $data->data = null;
-$data->dynamic = "alexvidal@as.com";
+$data->dynamic = "contato@webav.com.br";
 
 echo $response->data($data)->json();
-```
-Response Json translate language browser
+print_r($response->data($data)->array());
+print_r($response->data($data)->object());
 
-```php
-echo $response->data($data)->lang()->json();
-```
-
-Response Json translate define language 
-
-```php
-echo $response->data($data)->lang('en')->json();
-```
-Response Array
-
-```php
-var_dump($response->data($data)->array());
-```
-Response Array translate language browser
-
-```php
-var_dump($response->data($data)->lang()->array());
-```
-
-Response Array translate define language
-
-```php
-var_dump($response->data($data)->lang('en')->array());
-```
-
-Response Object
-
-```php
-var_dump($response->data($data)->object());
-```
-Response Object translate language browser
-
-```php
-var_dump($response->data($data)->lang()->object());
-```
-
-Response Object translate define language
-
-```php
-var_dump($response->data($data)->lang('en')->object());
 ```
 
 ## Contribution

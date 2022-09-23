@@ -5,7 +5,7 @@ namespace Erykai\Response;
 /**
  * resource class response
  */
-class Resource
+abstract class Resource
 {
     /**
      * @var object
@@ -14,14 +14,14 @@ class Resource
     /**
      * @return object
      */
-    public function getResponse(): object
+    protected function getResponse(): object
     {
         return $this->response;
     }
     /**
      * @param object $response
      */
-    public function setResponse(object $response): void
+    protected function setResponse(object $response): void
     {
         $this->response = $response;
     }
